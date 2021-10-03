@@ -21,11 +21,6 @@ abstract class AbstractRepository
         return $this->model->all();
     }
 
-    public function findOrFail(int $id)
-    {
-        return $this->model->findOrFail($id);
-    }
-
     public function whereEquals($column, $value)
     {
         return $this->model->where($column, $value);
@@ -44,6 +39,11 @@ abstract class AbstractRepository
     public function update(array $data)
     {
         return $this->model->update($data);
+    }
+
+    public function delete()
+    {
+        return $this->model->delete();
     }
 
     protected function resolveModel()

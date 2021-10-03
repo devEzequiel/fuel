@@ -20,7 +20,7 @@ class CreateDriversTable extends Migration
             $table->dateTime('birth_date');
             $table->string('cnh_number')->unique();
             $table->string('cnh_category');
-            $table->string('status');
+            $table->enum('status', [1, 2]);
             $table->timestamps();
         });
     }

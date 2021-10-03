@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Driver;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreDriveRequest;
+use App\Http\Requests\UpdateDriveRequest;
 use App\Repositories\Contracts\DriverRepositoryInterface as DriverInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class DriverController extends Controller
 {
-
     private $driver;
 
     public function __construct(DriverInterface $driver)
@@ -18,7 +20,9 @@ class DriverController extends Controller
 
     public function index()
     {
-        //
+        $drivers = $this->driver->all();
+
+        return view('drivers.index')->with('drivers', $drivers);
     }
 
     public function create()
@@ -26,36 +30,37 @@ class DriverController extends Controller
         return view("drivers.create");
     }
 
-    public function store(Request $request)
+    public function store(StoreDriveRequest $request)
     {
         $data = $request->all();
 
-//        $data['user_id'] = Auth::user()->id;
+        $data['status'] = 1;
 
-        try {
-            $this->driver->create($data);
-        } catch (\Exception $e) {
+        $this->driver->create($data);
 
-        }
-    }
-
-    public function show($id)
-    {
-        //
+        return redirect()->action('App\Http\Controllers\Driver\DriverController@index');
     }
 
     public function edit($id)
     {
-        //
+        $driver = $this->driver->find($id);
+
+        return view('drivers.edit')->with('driver', $driver);
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdateDriveRequest $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $this->driver->updateDriver($data, $id);
+
+        return redirect()->action('App\Http\Controllers\Driver\DriverController@index');
     }
 
-    public function destroy($id)
+    public function destroy(int $id)
     {
-        //
+        $this->driver->deleteDriver($id);
+
+        return redirect()->action('App\Http\Controllers\Driver\DriverController@index');
     }
 }
