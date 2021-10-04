@@ -17,6 +17,16 @@ class AppServiceProvider extends ServiceProvider
             'App\Repositories\Contracts\DriverRepositoryInterface',
             'App\Repositories\Eloquent\DriverRepository'
         );
+
+        $this->app->bind(
+            'App\Repositories\Contracts\VehicleRepositoryInterface',
+            'App\Repositories\Eloquent\VehicleRepository'
+        );
+
+        $this->app->bind(
+            'App\Repositories\Contracts\VehicleRepositoryInterface',
+            'App\Repositories\Eloquent\VehicleRepository'
+        );
     }
 
     /**

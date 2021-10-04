@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Driver\DriverController;
+use App\Http\Controllers\Vehicle\VehicleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,16 @@ Route::namespace('driver')->name('drivers.')->group(function () {
     Route::post('/driver', [DriverController::class, 'store'])->name('store');
     Route::put('/driver/{id}', [DriverController::class, 'update'])->name('update');
     Route::get('/driver/delete/{id}', [DriverController::class, 'destroy'])->name('delete');
+});
+
+Route::namespace('vehicle')->name('vehicles.')->group(function () {
+    Route::get('/vehicle', [VehicleController::class, 'index'])->name('list');
+    Route::get('/vehicle/create', [VehicleController::class, 'create'])->name('create');
+    Route::get('/vehicle/{id}', [VehicleController::class, 'edit'])->name('edit');
+
+    Route::post('/vehicle', [VehicleController::class, 'store'])->name('store');
+    Route::put('/vehicle/{id}', [VehicleController::class, 'update'])->name('update');
+    Route::get('/vehicle/delete/{id}', [VehicleController::class, 'destroy'])->name('delete');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

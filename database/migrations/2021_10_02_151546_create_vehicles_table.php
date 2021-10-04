@@ -19,7 +19,7 @@ class CreateVehiclesTable extends Migration
             $table->string('name');
             $table->enum('fuel_type', ['gasoline', 'ethanol', 'diesel']);
             $table->string('manufacturer');
-            $table->dateTime('manufacture_year');
+            $table->integer('manufacture_year');
             $table->float('tank_capacity');
             $table->text('comments')->nullable();
             $table->timestamps();

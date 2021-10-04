@@ -12,7 +12,7 @@
         <a href="{{url('/imoveis')}}" class="navbar-brand"><img src={{url('images/logo.png')}} alt="Logo"></a>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item"><a href="{{url('/driver')}}" class="nav-link">Motoristas</a></li>
-            <li class="nav-item"><a href="{{url('/imoveis/novo')}}" class="nav-link">Cadastrar novo imóvel</a></li>
+            <li class="nav-item"><a href="{{url('/vehicle')}}" class="nav-link">Veículos</a></li>
         </ul>
     </div>
 </nav>
