@@ -48,4 +48,6 @@ Route::namespace('fueling')->name('fuelings.')->middleware('auth')->group(functi
 
     Route::post('/fueling', [FuelingController::class, 'store'])->name('store');
 });
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
