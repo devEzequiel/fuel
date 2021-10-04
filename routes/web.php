@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('master');
 });
 
-Auth::routes();
+\Illuminate\Support\Facades\Auth::routes();
 
 Route::namespace('driver')->name('drivers.')->middleware('auth')->group(function () {
     Route::get('/driver', [DriverController::class, 'index'])->name('list');
