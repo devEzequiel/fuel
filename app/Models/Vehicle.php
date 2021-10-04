@@ -17,4 +17,14 @@ class Vehicle extends Model
         'manufacture_year',
         'tank_capacity'
     ];
+
+    public function fuelings()
+    {
+        return $this->hasMany(Fueling::class);
+    }
+
+    public function fuelType()
+    {
+        return $this->hasOne(FuelTypes::class);
+    }
 }

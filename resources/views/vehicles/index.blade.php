@@ -21,7 +21,22 @@
                     <tr>
                         <td>{{$vehicle->license_plate}}</td>
                         <td>{{$vehicle->name}}</td>
-                        <td>{{$vehicle->fuel_type}}</td>
+                        <td>@switch($vehicle->fuel_type)
+                                @case(1)
+                                Gasolina
+                                @break
+
+                                @case(2)
+                                Etanol
+                                @break
+
+                                @case(3)
+                                Diesel
+                                @break
+
+                                @default
+                                Gasolina
+                            @endswitch</td>
                         <td>{{$vehicle->manufacturer}}</td>
                         <td>{{$vehicle->manufacture_year}}</td>
                         <td>{{$vehicle->tank_capacity}}</td>

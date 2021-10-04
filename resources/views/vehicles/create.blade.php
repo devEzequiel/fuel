@@ -29,8 +29,8 @@
             </div>
 
             <div class="form-group">
-                <label for="manufacture_year">Tipo de Combustível</label>
-                <select id="manufacture_year" name="manufacture_year" class="form-control">
+                <label for="fuel_type">Tipo de Combustível</label>
+                <select id="fuel_type" name="fuel_type" class="form-control">
                     <option value="1">Gasolina</option>
                     <option value="2">Etanol</option>
                     <option value="3">Diesel</option>
@@ -62,3 +62,4 @@
         </form>
     </div>
 @endsection
+

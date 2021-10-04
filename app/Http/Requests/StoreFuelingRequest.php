@@ -13,7 +13,7 @@ class StoreFuelingRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class StoreFuelingRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'vehicle_id' => 'required',
+            'driver_id' => 'required',
+            'date' => 'required',
+            'fuel_type' => 'in:1,2,3',
+            'quantity' => 'required|numeric'
         ];
     }
 }

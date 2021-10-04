@@ -16,15 +16,17 @@ class CreateFuelingsTable extends Migration
         Schema::create('fuelings', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('vehicle_id');
-            $table->unsignedBigInteger('driver_id')->nullable(false);
+            $table->unsignedBigInteger('driver_id');
+            $table->unsignedBigInteger('fuel_type');
 
             $table->dateTime('date');
-            $table->enum('fuel_type', ['gasoline', 'ethanol', 'diesel']);
 
             $table->float('quantity');
 
             $table->foreign('vehicle_id')->references('id')->on('vehicles')->onDelete('cascade');
             $table->foreign('driver_id')->references('id')->on('drivers')->onDelete('cascade');
+            $table->foreign('fuel_type')->references('id')->on('fuel_types')->onDelete('cascade');
+
         });
     }
 

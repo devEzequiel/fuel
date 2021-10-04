@@ -21,15 +21,6 @@ abstract class AbstractRepository
         return $this->model->all();
     }
 
-    public function whereEquals($column, $value)
-    {
-        return $this->model->where($column, $value);
-    }
-
-    public function first()
-    {
-        $this->model->first();
-    }
 
     public function create($data)
     {
