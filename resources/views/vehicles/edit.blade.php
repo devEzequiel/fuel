@@ -1,21 +1,22 @@
 @extends('master')
 
 @section('content')
+
     <div class="container my-5">
 
-            <h1>Atualizar veículo</h1>
+        <h1>Atualizar veículo</h1>
 
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
-            @if(!empty($vehicle))
+        @if(!empty($vehicle))
 
             <form action="{{url("/vehicle")}}" method="post">
                 @csrf
@@ -42,17 +43,20 @@
 
                 <div class="form-group">
                     <label for="manufacturer">Fabricante</label>
-                    <input id="manufacturer" name="manufacturer" type="text" class="form-control" value={{$vehicle->manufacturer}}>
+                    <input id="manufacturer" name="manufacturer" type="text" class="form-control"
+                           value={{$vehicle->manufacturer}}>
                 </div>
 
                 <div class="form-group">
                     <label for="manufacture_year">Ano de Fabricação</label>
-                    <input id="manufacture_year" name="manufacture_year" type="text" class="form-control" value={{$vehicle->manufacture_year}}>
+                    <input id="manufacture_year" name="manufacture_year" type="text" class="form-control"
+                           value={{$vehicle->manufacture_year}}>
                 </div>
 
                 <div class="form-group">
                     <label for="tank_capacity">Capacidade Máxima do Tanque</label>
-                    <input id="tank_capacity" name="tank_capacity" type="text" class="form-control" value={{$vehicle->tank_capacity}}>
+                    <input id="tank_capacity" name="tank_capacity" type="text" class="form-control"
+                           value={{$vehicle->tank_capacity}}>
                 </div>
 
                 <div class="form-group">
