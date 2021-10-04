@@ -15,14 +15,16 @@ class CreateVehiclesTable extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('fuel_type');
             $table->string('license_plate')->unique();
             $table->string('name');
-            $table->enum('fuel_type', ['gasoline', 'ethanol', 'diesel']);
             $table->string('manufacturer');
-            $table->dateTime('manufacture_year');
+            $table->integer('manufacture_year');
             $table->float('tank_capacity');
             $table->text('comments')->nullable();
             $table->timestamps();
+
+            $table->foreign('fuel_type')->references('id')->on('fuel_types')->onDelete('cascade');
         });
     }
 

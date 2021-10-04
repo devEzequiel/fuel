@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreDriveRequest extends FormRequest
+class StoreFuelingRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,11 @@ class StoreDriveRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'document' => 'required|unique:drivers',
-            'birth_date' => 'required',
-            'cnh_number' => 'required|unique:drivers',
-            'cnh_category' => 'required'
+            'vehicle_id' => 'required',
+            'driver_id' => 'required',
+            'date' => 'required',
+            'fuel_type' => 'in:1,2,3',
+            'quantity' => 'required|numeric'
         ];
     }
 }

@@ -5,21 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Driver extends Model
+class FuelTypes extends Model
 {
     use HasFactory;
 
+    protected $table = 'fuel_types';
+
     protected $fillable = [
         'name',
-        'document',
-        'birth_date',
-        'cnh_number',
-        'cnh_category',
-        'status'
+        'price'
     ];
+
+    public function vehicles()
+    {
+        return $this->belongsToMany(Vehicle::class);
+    }
 
     public function fuelings()
     {
-        return $this->hasMany(Fueling::class);
+        return $this->belongsToMany(Fueling::class);
     }
 }
